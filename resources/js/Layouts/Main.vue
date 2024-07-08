@@ -22,7 +22,7 @@ import TextInput from '../Components/TextInput.vue';
                     <div class=" space-y-3 text-center">
                         <TextInput/>
                
-                <button class="  text-center block p-3 bg-red-500 w-72 text-white
+                <button class="  text-center block p-3 shadow-md rounded-sm hover:bg-red-600 ease-in-out duration-500 bg-red-500 w-72 text-white
              ">Sign Up</button>
                     </div>
             </form>
@@ -59,8 +59,8 @@ import TextInput from '../Components/TextInput.vue';
           <!-- service offers -->
         <div class=" px-40 flex flex-row p-6 justify-center place-items-center space-x-10">
 
-            <div class="card p-6 bg-slate-900 border border-semiblack-0 flex flex-col justify-center place-items-center rounded-md"
-                    @click="handleClick">
+            <div class="card p-6 bg-slate-900 border border-semiblack-0 flex flex-col justify-center place-items-center rounded-md shadow-md hover:bg-slate-800 ease-in-out duration-500"
+                    @click="getClicked">
                 <!-- 1st card --> 
                 <img src="images/web.png" class=" w-24" alt="webdevpic">
                 <h3 class=" text-red-500 p-2 font-semibold text-lg">Web Development</h3>
@@ -68,8 +68,8 @@ import TextInput from '../Components/TextInput.vue';
 
             </div>
 
-            <div class="card p-6 bg-slate-900 border border-semiblack-0 flex flex-col justify-center place-items-center rounded-md"
-                            @click="handleClick">
+            <div class="card p-6 bg-slate-900 border border-semiblack-0 flex flex-col justify-center place-items-center rounded-md shadow-md hover:bg-slate-800 ease-in-out duration-500"
+                            @click="getClicked">
                 <!-- 2nd card -->
                 <img src="images/appdev1.png" class=" w-24" alt="appdevpic">
                 <h3 class=" text-red-500 p-2 font-semibold text-lg">App Development</h3>
@@ -77,8 +77,8 @@ import TextInput from '../Components/TextInput.vue';
 
             </div>
 
-            <div class="card p-6 bg-slate-900 border border-semiblack-0 flex flex-col justify-center place-items-center rounded-md"
-                                @click="handleClick">
+            <div class="card p-6 bg-slate-900 border border-semiblack-0 flex flex-col justify-center place-items-center rounded-md shadow-md hover:bg-slate-800 ease-in-out duration-500 "
+                                @click="getClicked">
                 <!-- 3rd card -->
                 <img src="images/projman.png" class="w-24" alt="pmpic">
                 <h3 class=" text-red-500 p-2 font-semibold text-lg">Project Management</h3>
@@ -94,8 +94,8 @@ import TextInput from '../Components/TextInput.vue';
                 </h1>
 
                 <div class="flex flex-row space-x-3 justify-center place-items-center">
-                    <input type="text" class=" p-3 w-80 bg-slate-900 text-white rounded-sm focus: border-black dark:focus:border-slate-900 focus:ring-semiblack-0 dark:focus:ring-semiblack-0 shadow-sm" placeholder="Email address">
-                    <button class=" p-3 w-40 bg-red-500 font-semibold text-white  rounded-sm">Get Started ></button>
+                    <input type="text" class=" p-3 w-80 bg-slate-900 text-gray-300 rounded-sm focus: border-black dark:focus:border-slate-900 focus:ring-semiblack-0 dark:focus:ring-semiblack-0 shadow-sm" placeholder="Email address">
+                    <button class=" p-3 w-40 bg-red-500 font-semibold text-white  rounded-sm  hover:bg-red-600 ease-in-out duration-500">Get Started ></button>
                 </div>
             </div>
 </template>
@@ -103,7 +103,7 @@ import TextInput from '../Components/TextInput.vue';
 <script>
 export default {
     methods: {
-        handleClick(){
+        getClicked(){
             alert('SERVICE UNAVAILABLE')
         }
     }

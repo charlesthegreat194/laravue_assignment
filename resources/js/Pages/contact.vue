@@ -31,7 +31,8 @@
     </div>
       
     <div>
-        <a href="" class=" text-red-500" @click="whenClicked">Sign In</a>
+        <a href="" class=" text-red-500 border-2 border-red-500 p-3 rounded-md
+         hover:bg-red-500 hover:text-white ease-in-out duration-500" @click="whenClicked">Sign In</a>
     </div>
   </nav>
 
@@ -55,22 +56,22 @@
         <div>
                 <form action="post">
                          <div class=" flex flex-col text-white pb-3">
-                            <label for="name" class=" text-sm text-gray-300 pb-1">Your Name</label>
-                            <input type="text" class=" text-black rounded-md focus: border-black dark:focus:border-slate-900 focus:ring-semiblack-0 dark:focus:ring-semiblack-0 
+                            <label for="name" class=" text-sm text-gray-100 pb-1">Your Name</label>
+                            <input type="text" class=" text-gray-300 shadow-md bg-slate-900 rounded-md focus: border-black dark:focus:border-slate-900 focus:ring-semiblack-0 dark:focus:ring-semiblack-0 
                               placeholder: text-sm" placeholder="Your Name" required>
                          </div>
                          <div class=" flex flex-col text-white pb-3">
-                            <label for="email" class=" text-sm text-gray-300 pb-1">Your Email</label>
-                            <input type="email" class=" text-black rounded-md placeholder: text-sm focus: border-black dark:focus:border-slate-900 focus:ring-semiblack-0 dark:focus:ring-semiblack-0 " placeholder="Your Email" required>
+                            <label for="email" class=" text-sm text-gray-100 pb-1">Your Email</label>
+                            <input type="email" class=" text-gray-300 shadow-md bg-slate-900 rounded-md placeholder: text-sm focus: border-black dark:focus:border-slate-900 focus:ring-semiblack-0 dark:focus:ring-semiblack-0 " placeholder="Your Email" required>
                          </div>
 
                          <div class=" flex flex-col text-white pb-2">
-                            <label for="message" class=" text-sm text-gray-300 pb-1">Message:</label>
+                            <label for="message" class=" text-sm text-gray-100 pb-1">Message:</label>
                             <textarea name="message" id="" cols="30" rows="10" placeholder="Say something" 
-                            class=" placeholder: text-sm rounded-md text-black h-32 mb-3 focus: border-black dark:focus:border-slate-900 focus:ring-semiblack-0 dark:focus:ring-semiblack-0 "></textarea>
+                            class=" text-gray-300 bg-slate-900 shadow-md placeholder: text-sm rounded-md  h-32 mb-3 focus: border-black dark:focus:border-slate-900 focus:ring-semiblack-0 dark:focus:ring-semiblack-0 "></textarea>
                          </div>
 
-                         <button class=" text-white p-2  rounded-md  text-lg w-72 bg-red-500">Submit</button>
+                         <button class=" text-white p-2  rounded-md shadow-md hover:bg-red-600 ease-in-out duration-500 text-lg w-72 bg-red-500">Submit</button>
                      </form>
                  </div>
     </div>

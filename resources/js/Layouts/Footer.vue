@@ -3,8 +3,8 @@
     <footer class=" border-t-4 border-gray-600 font-popins bg-semiblack-0 text-white  px-20 mt-20 bottom-0 w-full  h-40">
         <div class=" mt-5 text-center mb-2 ">
             <!-- footerlogoname -->
-            <span class="block">ITECH-TECHAREESH</span> 
-            <span class=" text-red-500">since 1969</span>
+            <span class="block">ITECH-TECHARES</span> 
+            <span class=" text-red-500 text-sm">since 1969</span>
         </div>
 
       <div class=" p-2 flex items-center justify-center space-x-4">
