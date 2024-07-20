@@ -29,6 +29,7 @@ const submit = () => {
 
         <div>
             <form @submit.prevent="submit">
+              
                 <div class="bg-white p-8 flex flex-col justify-center items-center rounded-lg shadow-lg w-96">
                     <h2 class="text-center text-2xl font-semibold text-red-500 mb-4">Sign Up</h2>
 
