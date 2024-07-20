@@ -23,10 +23,7 @@
     </ul>
     </div>
 
-    <div>
-      <!-- <Link href=" /" >Sign Out</Link> -->
-    </div>
-      
+    
 
     <div class=" space-x-10">
         <Link href="signup">Sign Up</Link>

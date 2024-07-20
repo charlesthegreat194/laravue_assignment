@@ -19,6 +19,7 @@ const takeDate = (date) =>
     year: "numeric",
     month: "long",
     day: "numeric",
+    
   });
 
 const deleteUser = async (userId) => {
@@ -27,7 +28,7 @@ const deleteUser = async (userId) => {
       method: 'DELETE',
     });
     if (!response.ok) {
-      throw new Error('Network response was not ok');
+      throw new Error('Network response is not ok');
     }
     users.value = users.value.filter(user => user.id !== userId);
   } catch (error) {
@@ -41,7 +42,8 @@ const updateUser = (user) => {
 
 const saveUser = async () => {
   try {
-    const response = await fetch(`api/users/${updatedUser.value.id}`, {
+      const response = await fetch(`api/users/${updatedUser.value.id}`, {
+
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -53,6 +55,7 @@ const saveUser = async () => {
     }
     const updatedData = await response.json();
     const index = users.value.findIndex(user => user.id === updatedUser.value.id);
+
     if (index !== -1) {
       users.value[index] = updatedData;
     }
@@ -64,15 +67,16 @@ const saveUser = async () => {
 </script>
 
 <template>
-  <DashboardHeader></DashboardHeader>
-  <h1 class="text-white">Welcome to your dashboard</h1>
 
-  <div class="text-green-500 bg-yellow-500 px-32">
-    <!-- Additional content here -->
-  </div>
+  <DashboardHeader>
 
-  <div class="text-white px-20 mt-20">
-    <table class="min-w-full divide-y divide-red-500">
+  </DashboardHeader>
+
+   
+ 
+
+  <div class="text-white px-20 mt-20 ">
+    <table class="min-w-full divide-y divide-red-500 rounded-md shadow-md">
       <thead class="bg-gray-800">
         <tr class="text-center">
           <th class="px-6 py-3 text-xs font-medium text-red-500 uppercase tracking-wider">ID</th>
@@ -89,18 +93,25 @@ const saveUser = async () => {
           <td>{{ user.email }}</td>
           <td>{{ takeDate(user.created_at) }}</td>
           <td class="space-x-12">
-            <button class="p-3 bg-green-500" @click="updateUser(user)">Edit</button>
-            <button class="p-3 bg-red-600" @click="deleteUser(user.id)">Delete</button>
+            <button class="p-3 w-20 rounded-md bg-green-500" @click="updateUser(user)">Edit</button>
+            <button class="p-3 w-20 rounded-md
+             bg-red-600" @click="deleteUser(user.id)">Delete</button>
           </td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div class="w-96 mx-auto">
-    <div v-if="updatedUser.id" class="text-white px-20 mt-10">
-      <form @submit.prevent="saveUser" class="bg-gray-800 border border-gray-700 rounded-lg p-6 w-80">
-        <h1 class="text-2xl font-semibold text-center mb-4">Edit User</h1>
+  
+
+  <div  class="edit-form w-96 mx-auto">
+    <div v-if="updatedUser.id" class="text-white flex justify-center px-20 mt-10">
+     
+      <form @submit.prevent="saveUser" class="  bg-gray-800 border border-gray-700 rounded-lg p-6 w-80">
+        <div class=" flex justify-end">
+        <v-btn  class=" max-w-4" color="danger" @click="closeWindow"> X</v-btn>
+        </div>
+        <h1 class="text-2xl font-semibold text-center mb-4 text-red-500">Edit User</h1>
         <div class="mb-4">
           <label for="name" class="block text-gray-400 mb-1">Name</label>
           <input
@@ -128,6 +139,20 @@ const saveUser = async () => {
     </div>
   </div>
 </template>
+<script>
+export default {
+  methods(){
+      
+  }
+}
+</script>
 
 <style>
+
+  body{
+    background-color: #060606;
+  }
+    .edit-form{
+      width: 500px;
+    }
 </style>
