@@ -1,5 +1,6 @@
 <script setup>
-  import {Link} from '@inertiajs/vue3';  
+  import {Link} from '@inertiajs/vue3';
+  
 
 </script>
 
@@ -17,24 +18,18 @@
     </div>
     <div class="">
     <ul class="flex  list-none text-center place-items-center  gap-10">
-      <Link href="/" class=" link1  text-lg active: text-red-500">Home</Link>
+      <Link href="/" class=" link1  text-lg ">Home</Link>
       <Link href="/contact" class="link2 text-lg  ">Contact</Link>
-      
+
     </ul>
     </div>
 
-    <div>
-      <!-- <Link href=" /" >Sign Out</Link> -->
-    </div>
-      
-
     <div class=" space-x-10">
-        <Link href="signup">Sign Up</Link>
-        <Link href="login" class=" text-red-500 text-lg border-2 border-red-500 shadow-sm p-3 rounded-md
-       hover:bg-red-500 hover:text-white duration-500 ease-in-out" >Sign In</Link>
+        <Link href="/login" class=" text-red-500 text-lg border-2 border-red-500 shadow-sm p-3 rounded-md
+       hover:bg-red-500 hover:text-white duration-500 ease-in-out">Sign Out</Link>
     </div>
   </nav>
-    
+
 </template>
 
 <script>

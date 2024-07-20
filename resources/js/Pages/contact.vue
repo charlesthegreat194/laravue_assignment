@@ -56,12 +56,12 @@
         <div>
                 <form action="post">
                          <div class=" flex flex-col text-white pb-3">
-                            <label for="name" class=" text-sm text-gray-100 pb-1">Your Name</label>
+                            <label for="name" class=" text-sm text-gray-100 pb-1">Name</label>
                             <input type="text" class=" text-gray-300 shadow-md bg-slate-900 rounded-md focus: border-black dark:focus:border-slate-900 focus:ring-semiblack-0 dark:focus:ring-semiblack-0 
                               placeholder: text-sm" placeholder="Your Name" required>
                          </div>
                          <div class=" flex flex-col text-white pb-3">
-                            <label for="email" class=" text-sm text-gray-100 pb-1">Your Email</label>
+                            <label for="email" class=" text-sm text-gray-100 pb-1">Email</label>
                             <input type="email" class=" text-gray-300 shadow-md bg-slate-900 rounded-md placeholder: text-sm focus: border-black dark:focus:border-slate-900 focus:ring-semiblack-0 dark:focus:ring-semiblack-0 " placeholder="Your Email" required>
                          </div>
 

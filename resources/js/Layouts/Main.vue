@@ -38,7 +38,7 @@ import TextInput from '../Components/TextInput.vue';
         </div>
         <div class=" yawa bg-red-500 rounded-full w-72 h-72 mb-20 ">
            
-            <img src="images/pm.png" alt="" class="unskew  ">
+           <img src="images/pm.png" alt="" class="unskew">
 
         </div>
     </div>
