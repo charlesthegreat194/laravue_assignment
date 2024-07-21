@@ -44,7 +44,7 @@ import TextInput from '../Components/TextInput.vue';
     </div>
 
     <!--  service info -->
-    <div id="" class=" max-h-100 font-popins px-36 mt-36 flex place-items-center space-x-5">
+    <div id="" class=" max-h-100 font-popins px-20 mt-36 flex place-items-center space-x-5">
 
         <div id="info" class=" text-white text-center">
             <!-- service descrip -->
@@ -57,7 +57,7 @@ import TextInput from '../Components/TextInput.vue';
     </div>
 
           <!-- service offers -->
-        <div class=" px-40 flex flex-row p-6 justify-center place-items-center space-x-10">
+        <div class=" px-20 my-10 flex flex-row p-6 justify-center place-items-center space-x-10">
 
             <div class="card p-6 bg-slate-900 border border-semiblack-0 flex flex-col justify-center place-items-center rounded-md shadow-md hover:bg-slate-800 ease-in-out duration-500"
                     @click="getClicked">

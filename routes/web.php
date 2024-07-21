@@ -18,12 +18,7 @@ use App\Models\User;
 */
 
 Route::get('/', function () {
-    return Inertia::render('index', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
+    return Inertia::render('index');
 });
 
 Route::get('/contact', function(){
@@ -39,22 +34,27 @@ Route::get('/contact', function(){
 // require __DIR__.'/auth.php';
 
 
+// route, when clicked it goes to the login page
 Route::get('/login', function(){
     return Inertia::render('login');
 })->name('login');
 
+// route, when clicked it goes to the signup page
 Route::get('/signup', function(){
     return Inertia::render('signup');
 })->name('signup');
 
-Route::post('/register', [AuthController::class, 'register']);
 
+// api for login and register from authcontroller
+Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 
+// route, whenn clicked it goes to the dashboard
 Route::get('/dashboard', function(){
     return Inertia::render('dashboard');
 })->name('dashboard');
 
+// shows the read the data to the dashboard
 Route::middleware(['auth','api'])->group(function(){
     Route::get('/dashboard', function(){
         $users = User::paginate(); // Fetch all users from the database
