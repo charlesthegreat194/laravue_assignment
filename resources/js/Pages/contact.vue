@@ -31,8 +31,8 @@
     </div>
       
     <div>
-        <a href="" class=" text-red-500 border-2 border-red-500 p-3 rounded-md
-         hover:bg-red-500 hover:text-white ease-in-out duration-500" @click="whenClicked">Sign In</a>
+        <Link href= "/login" class=" text-red-500 border-2 border-red-500 p-3 rounded-md
+         hover:bg-red-500 hover:text-white ease-in-out duration-500" >Sign In</Link>
     </div>
   </nav>
 
