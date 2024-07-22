@@ -25,7 +25,7 @@ window.addEventListener('resize', ()=>{
    </Main>
 
    <Footer>
-  <!-- footer -->
+  <!--shows my footer -->
     </Footer>
 
 </template>

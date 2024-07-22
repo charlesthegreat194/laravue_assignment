@@ -4,107 +4,78 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\JsonResponse;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
+
 class AuthController extends Controller
 {
-    public function register(Request $request){
+    public function register(Request $request): RedirectResponse
+    {
+        // Register the user
+        $user = User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => bcrypt($request->input('password')),
+        ]);
 
-        // validate
-            $fields= $request->validate([
-                'name' => ['required', 'max:255'],
-                'email' => ['required', 'email', 'max:255', 'unique:users'],
-                'password' => ['required', 'confirmed']
-            ]);
+        // Log in the user
+        Auth::login($user);
 
-
-        // register
-            $user = User::create($fields);
-        // login
-            Auth::login($user);
-        // redirect
-            return redirect()->route('login');
-
-
-
+        // Redirect to the login page
+        return redirect()->route('login');
     }
 
     public function login(Request $request): RedirectResponse
     {
-        $fields = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
-
-        if (Auth::attempt($fields)) {
+        // Attempt to log in
+        if (Auth::attempt($request->only('email', 'password'))) {
             $request->session()->regenerate();
-
-         
-
             return redirect()->intended('/dashboard');
         }
 
+        // Redirect back with error messages
         return back()->withErrors([
-            'email' => 'Email not found!',
-            'password' => 'Incorrect Password!',
+            'email' => 'Invalid credentials.',
         ])->onlyInput('email');
     }
 
-    public function logout(Request $request){
-        
+    public function logout(Request $request): RedirectResponse
+    {
+        // Log out the user
         Auth::logout();
+
+        // Invalidate the session
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('signup');
+        // Redirect to the signup page
+        return redirect()->route('signup');
     }
 
-    
-    public function __construct()
+    public function updateUser(Request $request, $id): JsonResponse
     {
-        // $this->middleware('auth');
+        $user = User::findOrFail($id);
+        $user->update($request->validated());
+
+        return response()->json($user);
     }
 
-    public function index(){
-        $userController = new UserController();
+    public function deleteUser($id): JsonResponse
+    {
+        $user = User::find($id);
 
-        $users =  $userController->getUsers();
-        return view('dashboard', ['users'=>$users]);
-    }
-
-        // edit user
-        public function update(Request $request, $id)
-        {
-            $request->validate([
-                'name' => 'required|string|max:255',
-                'email' => 'required|string|email|max:255|unique:users,email,' . $id,
+        if ($user) {
+            $user->delete();
+            return response()->json([
+                'message' => 'Account deleted successfully.',
+                'code' => 200
             ]);
-        
-            $user = User::findOrFail($id);
-            $user->name = $request->input('name');
-            $user->email = $request->input('email');
-            $user->save();
-        
-            return response()->json($user);
-        }
-        
-        public function deleteUser($id)
-        {
-            $user = User::find($id);
-            if($user){
-                $user->delete();
-                return response()->json([
-                    'message' => 'Account Deleted Successfully ',
-                    'code' => 200
-                ]);
-            } else{
-                return response()->json([
-                    'message' => "Account doesnt exist"
-                ]);
-            }
-            
         }
 
-    
+        return response()->json([
+            'message' => "Account doesn't exist."
+        ], 404);
+    }
 }

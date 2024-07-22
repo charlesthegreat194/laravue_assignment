@@ -1,5 +1,9 @@
 <script setup>
-  import {Link} from '@inertiajs/vue3';  
+  import {Link} from '@inertiajs/vue3';
+  import {usePage} from  '@inertiajs/vue3';
+ 
+
+
 
 </script>
 
@@ -24,8 +28,9 @@
     </div>
 
     
-
-    <div class=" space-x-10">
+  
+        
+    <div  class=" space-x-10">
         <Link href="signup">Sign Up</Link>
         <Link href="login" class=" text-red-500 text-lg border-2 border-red-500 shadow-sm p-3 rounded-md
        hover:bg-red-500 hover:text-white duration-500 ease-in-out" >Sign In</Link>
@@ -34,13 +39,6 @@
     
 </template>
 
-<script>
-export default {
-  methods:{
-    whenClicked(){
-      alert('Couldnt proceed. Try again later.');
-    }
-  }
-}
-</script>
+
+
 
